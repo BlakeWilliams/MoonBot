@@ -12,6 +12,10 @@ module MoonBot
         @on_message.call(message) if @on_message
       end
     end
+    
+    def derp x
+      puts "herp"
+    end
 
   end
 end

@@ -16,7 +16,15 @@ module MoonBot
     end
     
     def handle message
-      puts message
+      @plugins.each do |name, instance|
+        instance.send('on_' + message[:command].downcase, message) rescue nil
+        instance.send('any', message) if instance.respond_to? 'any'          
+      end
+    end
+    
+    def register plugin
+      @plugins[plugin.to_s] = plugin.new(self)
+      puts "Loading #{plugin.to_s}"
     end
   
   end
