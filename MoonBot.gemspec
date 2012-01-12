@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "MoonBot/version"
 
 Gem::Specification.new do |s|
-  s.name        = "MoonBot"
+  s.name        = "moonbot"
   s.version     = MoonBot::VERSION
   s.authors     = ["Blake Williams"]
   s.email       = ["blake@baristadesign.com"]
