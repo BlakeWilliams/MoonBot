@@ -9,13 +9,14 @@ module MoonBot
         message[:prefix]  = body.shift
         message[:command] = body.shift
         message[:params]  = body.shift
-        return message
+        2.times { separated.shift }
+        message[:trailing] = separated.join(":")
       else
         body = data.split ' '
         message[:command] = body.shift
         message[:args]    = body
-        return message
       end
+      message
     end
     
   end
