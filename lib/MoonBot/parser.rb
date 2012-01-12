@@ -5,7 +5,7 @@ module MoonBot
       # if not empty
       if !data.scan(/^:/).empty?
         separated = data.split ':'
-        body  = separated[1].split ' '
+        body  = separated.last.split ' '
         message[:prefix]  = body.shift
         message[:command] = body.shift
         message[:params]  = body.shift
