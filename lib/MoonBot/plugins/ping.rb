@@ -6,7 +6,7 @@ module MoonBot::Plugin
     
     def on_ping message
       pong = "PONG #{message[:args]}"
-      @bot.client.send_data pong
+      @bot.command pong
     end
   end
 end

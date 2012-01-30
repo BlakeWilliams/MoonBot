@@ -16,9 +16,10 @@ module MoonBot::Plugin
     
     def send_auth
       puts "Sending User Data"
-      auth  = "NICK #{@nick}\r\n"
-      auth += "USER #{@login} 8 * : #{@name}\r\n"
-      @bot.client.send_data auth
+      nick = "NICK #{@nick}"
+      user = "USER #{@login} 8 * : #{@name}"
+      @bot.command nick
+      @bot.command user
     end
   end
 end

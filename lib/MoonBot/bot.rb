@@ -11,10 +11,7 @@ module MoonBot
     
     def start
       EventMachine.run do
-        @client = EventMachine.connect @host, @port, Client, Proc.new do |message| 
-          message = message.split("\r\n")
-          message.each do {|m| self.handle m}
-        end
+        @client = EventMachine.connect @host, @port, Client, Proc.new {|m| handle m}
       end
     end
     
@@ -32,7 +29,7 @@ module MoonBot
     end
     
     def command message
-      self.client.send_data(message + '\r\n')
+      self.client.send_data(message + "\r\n")
     end
   
   end
