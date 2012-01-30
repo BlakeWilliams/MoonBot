@@ -15,12 +15,12 @@ class Ping
     
   def on_ping message
     pong = "PONG #{message[:args]}"
-    @bot.client.send_data pong
+    @bot.command pong
   end
 end
 ```
 
-The initializer takes the bot as a paramater so you can access the client to send data as well as access plugins so you can call methods from them (for example you have an authorization plugin that you want to use on the user). There is also the "any" method, if your plugin has this method it will be called every time the server sends back data.
+The initializer takes the bot as a paramater so you can access the client to send data and also access plugins so you can call methods from them (for example you have an authorization plugin that you want to use on the user). There is also the "any" method, if your plugin has this method it will be called every time the server sends back data. To send data to the server call @bot.command, which will send the proper data to the server, including "\r\n".
 
 ## How do I get started?
 First, Add moonbot to your Gemfile.
