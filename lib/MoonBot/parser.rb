@@ -3,9 +3,9 @@ module MoonBot
     def self.parse data
       message = {}
       # if not empty
-      if !data.scan(/^:/).empty?
+      if data.scan(/^:/)
         separated = data.split ':'
-        body  = separated.last.split ' '
+        body  = separated[1].split ' '
         message[:prefix]  = body.shift
         message[:command] = body.shift
         message[:params]  = body.shift
@@ -17,6 +17,8 @@ module MoonBot
         message[:args]    = body
       end
       message
+    rescue
+      nil
     end
     
   end
