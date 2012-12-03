@@ -1,4 +1,6 @@
 module MoonBot::Plugin
+  attr_reader :nick, :login, :name
+
   class Auth
     def initialize bot
       @bot = bot
